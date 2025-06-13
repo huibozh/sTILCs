@@ -51,7 +51,7 @@ for directory_path in glob.glob("/*"):
         columns_to_drop = ['norm', 'Patch_id', 'Positive', 'Negative', 'Other','id']
         data2 = df.drop(columns_to_drop, axis=1)
         data2.index.name = 'No'
-        output_filename = df['id'].iloc[0] + "_hot_pot_data.csv"  
+        output_filename = df['id'].iloc[0] + "_hot_spot_data.csv"  
         data2_output_file = directory_path + "//" + output_filename
         
         data2.to_csv(data2_output_file, index=False)
@@ -64,8 +64,8 @@ print(f"Base path: {base_path}")
 
 for directory_path in glob.glob("/*"):
     print(f"Directory: {directory_path}")
-    for file_path in glob.glob(os.path.join(directory_path, "*_hot_pot_data.csv")): # TCGA: hot_pot_data, 
-    #for file_path in glob.glob(os.path.join(directory_path, "*_hot_pot_original_data.csv")): # XY: hot_pot_original_data
+    for file_path in glob.glob(os.path.join(directory_path, "*_hot_spot_data.csv")): # TCGA: hot_pot_data, 
+    #for file_path in glob.glob(os.path.join(directory_path, "*_hot_spot_original_data.csv")): # XY: hot_pot_original_data
         print(f"Processing file: {file_path}")
 
         label1 = os.path.basename(directory_path)[:12] #TCGA_cohort
